@@ -7,7 +7,7 @@ We have 6 weeks (May-June) to create a Go game, using every technology we want (
 ## The team
 
 is composed of four 1st year students at HETIC :
-- Sébastien DANCRE-MICHEL
+- Sébastien DANCER-MICHEL
 - Ronan FOURREAU
 - Bastien BERGAGLIA
 - Louis-Victor MORGAUT
