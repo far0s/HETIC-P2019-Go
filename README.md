@@ -22,3 +22,9 @@ Primary and high-priority functionnalities to add :
 - Implement basic Go rules
 - Score count
 - Identify end-game and winner/loser
+
+"partie.txt" : 
+for 9x9 goban, there will be 10 lignes (9+1) with 9 characters on each line except last line, which will have only one character.
+The 9 first lines represents le saved goban with ' ' (spaces)
+For an intersection without stone, 'N' black stones and 'b' for white stones
+The last line only contains 'n' or 'b' depending of whose turn it is.
