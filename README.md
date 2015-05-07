@@ -1,2 +1,15 @@
 # HETIC-P2019-Go
-This is a development school project, starting from May to June 2015, with the objective of building a browser-playable game of Go
+
+## The project
+
+We have 6 weeks (May-June) to create a Go game, using every technology we want (mostly HTML/CSS/JS), in the form of a web-application.
+
+## The team
+
+is composed of four 1st year students at HETIC :
+• Sébastien DANCRE-MICHEL
+• Ronan FOURREAU
+• Bastien BERGAGLIA
+• Louis-Victor MORGAUT
+
+## Roadmap
