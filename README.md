@@ -13,3 +13,12 @@ is composed of four 1st year students at HETIC :
 - Louis-Victor MORGAUT
 
 ## Roadmap
+
+Primary and high-priority functionnalities to add :
+- The app can save a save into a "partie.txt" file
+- The app can load a save from a "partie.txt" file
+- The app allows player against player game
+- The app allows player againt AI game
+- Implement basic Go rules
+- Score count
+- Identify end-game and winner/loser
