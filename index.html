@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <h1>Game of Go</h1>
-
+    <h1>Sauce Samouraï !</h1>
     <div id="menu">
         <!-- Display pre-game options : goban size (19x19/9x9), opponent (humain/AI), various miscellaneous options -->
     </div>
@@ -18,11 +17,15 @@
     </div>
     <div id="hud">
         <!-- Display whose turn it is -->
+        <ul id="turnWhoBlock">
+            <li class="turnWho active">BLACK</li>
+            <li class="turnWho">WHITE</li>
+        </ul>
         <!-- Display score informations, prisoners and territory -->
         <!-- Display time -->
     </div>
 
     <script src="js/script.js"></script>
-    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 </body>
 </html>

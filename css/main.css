@@ -1,3 +1,42 @@
 /* line 1, /Users/sebastiendancermichel/Documents/HETIC/Algorithmique/HETIC-P2019-Go/css/main.scss */
+h1 {
+  float: left;
+  margin-left: 30px; }
+
+/* line 5, /Users/sebastiendancermichel/Documents/HETIC/Algorithmique/HETIC-P2019-Go/css/main.scss */
 #boardContainer {
-  float: left; }
+  width: 570px;
+  margin: 50px auto;
+  border: 4px dotted orange; }
+  /* line 9, /Users/sebastiendancermichel/Documents/HETIC/Algorithmique/HETIC-P2019-Go/css/main.scss */
+  #boardContainer .boardSquare {
+    display: inline-block;
+    box-sizing: border-box;
+    height: 30px;
+    width: 30px;
+    margin: 0;
+    background-color: beige;
+    border: 1px solid red;
+    transition: all 0.1s; }
+    /* line 18, /Users/sebastiendancermichel/Documents/HETIC/Algorithmique/HETIC-P2019-Go/css/main.scss */
+    #boardContainer .boardSquare:hover {
+      background-color: red; }
+
+/* line 25, /Users/sebastiendancermichel/Documents/HETIC/Algorithmique/HETIC-P2019-Go/css/main.scss */
+#hud #turnWhoBlock {
+  position: absolute;
+  top: 50px;
+  right: 100px; }
+  /* line 29, /Users/sebastiendancermichel/Documents/HETIC/Algorithmique/HETIC-P2019-Go/css/main.scss */
+  #hud #turnWhoBlock .turnWho {
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    background-color: grey;
+    border: 5px solid darkgrey;
+    border-radius: 5px; }
+  /* line 37, /Users/sebastiendancermichel/Documents/HETIC/Algorithmique/HETIC-P2019-Go/css/main.scss */
+  #hud #turnWhoBlock .active {
+    background-color: white;
+    color: black;
+    border-color: darkgrey; }

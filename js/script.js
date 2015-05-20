@@ -61,6 +61,7 @@ function gobanGen() {
     for (var ix=0; ix<goban.size ; ix++) {
       boardContainer.innerHTML+="<div class='boardSquare' x-data="+ix+" y-data="+iy+" width='20px' height='20px' backround-color='black' border-color='red'></div>";
     }
+    boardContainer.innerHTML+="<br>";
   };
 
 
