@@ -3,41 +3,22 @@ h1 {
 	margin-left: 30px;
 }
 #boardContainer {
-	width: 570px;
+	line-height: 0;
+	max-width: 760px;
 	margin: 50px auto;
-	border: 4px dotted orange;
+	// border: 4px dotted orange;
 	.boardSquare {
 		display: inline-block;
 		box-sizing: border-box;
-		height: 30px;
-		width: 30px;
+		height: 40px;
+		width: 40px;
 		margin: 0; 
-		background-color: beige;
-		border: 1px solid red;
+		background: url('../assets/intersection.svg');
+		background-size: contain; 
+		// border: 1px solid red;
 		transition: all 0.1s;
 		&:hover {
 			background-color: red;
-		}
-	}
-}
-
-#hud {
-	#turnWhoBlock {
-		position: absolute;
-		top: 50px;
-		right: 100px;
-		.turnWho {
-			display: inline-block;
-			padding: 10px 20px;
-			color: white;
-			background-color: grey;
-			border: 5px solid darkgrey;
-			border-radius: 5px;
-		}
-		.active {
-			background-color: white;
-			color: black;
-			border-color: darkgrey;
 		}
 	}
 }

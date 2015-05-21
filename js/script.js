@@ -41,19 +41,6 @@ var goban = {
 var boardContainer = document.getElementById('boardContainer');
 var board;
 
-function gobanSelect() {
-  if (goban.size == 19) {
-    // 19x19 goban generation code here
-
-  } else if (goban.size == 13) {
-    // 13x13 goban generation code here
-
-  } else if(goban.size == 9){
-    // 9x9 goban generation code here
-
-  }
-}
-
 function gobanGen() {
   iy = 0;
   ix = 0;
@@ -63,19 +50,14 @@ function gobanGen() {
     }
     boardContainer.innerHTML+="<br>";
   };
-
-
-  // while(iy<goban.size) {
-  //   while(ix<goban.size) {
-  //     // add 1 div to #boardContainer with X,Y attributes
-  //     boardContainer.innerHTML+="<div class='boardSquare' x-data="+ix+" y-data="+iy+"></div>";
-  //     // increment n at the end of each generation
-  //     ix++;
-  //   }
-  //   iy++;
-  // }
 }
 gobanGen();
+
+function gobanGenTest() {
+  goban.size = document.getElementById('gobanGenTest').value;
+  boardContainer.innerHTML="";
+  gobanGen();
+}
 
 
 
