@@ -33,38 +33,55 @@
 
 // Global board vars
 var goban = {
-  size: 19,  // 19/13/9;
+  size: 9,  // 19/13/9;
   opponent: 'human',  // 'human'/'ai'/'online' local human by default
   timeonattack: false, // false/true false by default
-  turn: 'b', // 'b'/'w', black starts
+  turn: 'b' // 'b'/'w', black starts
 }
 var boardContainer = document.getElementById('boardContainer');
-var board;
+var boardSquare = boardContainer.getElementsByClassName('boardSquare');
+var blackPlayer = {
+  stone: "<div class='blackStone stone' x-data='0' y-data='0'></div>",  // stone element to be added to the html
+}
+var whitePlayer = {
+  stone: "<div class='whiteStone stone' x-data='0' y-data='0'></div>",  // stone element to be added to the html
+}
+var currentCoordinates = {
+  x: 0,
+  y: 0,
+}
 
+
+// Goban generation function, depends on goban.size var only
 function gobanGen() {
   iy = 0;
   ix = 0;
   for (var iy=0; iy<goban.size; iy++) {
     for (var ix=0; ix<goban.size ; ix++) {
-      boardContainer.innerHTML+="<div class='boardSquare' x-data="+ix+" y-data="+iy+" width='20px' height='20px' backround-color='black' border-color='red'></div>";
+      boardContainer.innerHTML+="<div class='boardSquare' x-data="+ix+" y-data="+iy+"></div>";
     }
     boardContainer.innerHTML+="<br>";
   };
 }
 gobanGen();
 
-function gobanGenTest() {
-  goban.size = document.getElementById('gobanGenTest').value;
-  boardContainer.innerHTML="";
-  gobanGen();
-}
-
-
+// Stone generation and placement function 
+//  1. Gets X-Y coordinates of clicked board intersection
+//  2. Set those coordinates to temp var "currentCoordinates"
+//  3. Place stone with "currentCoordinates" and adequate color and characteristics
+boardContainer.addEventListener('click', function (event) {
+  boardContainer.innerHTML+=blackPlayer.stone;
+  console.log('Stone placed');
+});
+boardContainer.addEventListener('click', function() {
+  console.log("X:"+event.target.getAttribute('x-data'));
+  console.log("Y:"+event.target.getAttribute('y-data'));
+})
 
 
 /* Turn by turn planning
   Each turn :
-    - Detect which playeris playing, and select the right vars to current vars;
+    - Detect which player is playing, and select the right vars to current vars;
     - Detect player input (mouseclick) on the goban -> x,y ;
     - Approximate player input to nearest goban intersection -> x,y ;
     - Place a stone (black if black turn, white if white turn) ;

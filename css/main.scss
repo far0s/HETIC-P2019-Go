@@ -1,3 +1,5 @@
+$stone-size: 60px;
+
 h1 {
 	float: left;
 	margin-left: 30px;
@@ -10,15 +12,33 @@ h1 {
 	.boardSquare {
 		display: inline-block;
 		box-sizing: border-box;
-		height: 40px;
-		width: 40px;
+		height: $stone-size;
+		width:$stone-size;
 		margin: 0; 
 		background: url('../assets/intersection.svg');
 		background-size: contain; 
 		// border: 1px solid red;
+		border-radius: 50%;
 		transition: all 0.1s;
 		&:hover {
 			background-color: red;
 		}
+	}
+	.stone {
+		width: $stone-size;
+		height: $stone-size;
+		position: absolute;
+		top: 0;
+		left: 0;
+		transition: all 0.3s;
+		display: inline-block;
+	}
+	.blackStone {
+		background-color: black;
+		border-radius: 50%;
+	}
+	.whiteStone {
+		background-color: lightgrey;
+		border-radius: 50%;
 	}
 }
