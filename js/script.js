@@ -70,13 +70,10 @@ gobanGen();
 //  2. Set those coordinates to temp var "currentCoordinates"
 //  3. Place stone with "currentCoordinates" and adequate color and characteristics
 boardContainer.addEventListener('click', function (event) {
-  boardContainer.innerHTML+=blackPlayer.stone;
+  boardContainer.innerHTML+="<div class='blackStone stone' x-data="+event.target.getAttribute('x-data')+" y-data="+event.target.getAttribute('y-data')+"></div>";
   console.log('Stone placed');
+  console.log("X:"+event.target.getAttribute('x-data') +" , "+ "Y:"+event.target.getAttribute('y-data'));
 });
-boardContainer.addEventListener('click', function() {
-  console.log("X:"+event.target.getAttribute('x-data'));
-  console.log("Y:"+event.target.getAttribute('y-data'));
-})
 
 
 /* Turn by turn planning
