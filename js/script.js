@@ -39,16 +39,12 @@ var goban = {
   turn: 'b' // 'b'/'w', black starts
 }
 var boardContainer = document.getElementById('boardContainer');
-var boardSquare = boardContainer.getElementsByClassName('boardSquare');
+var boardSquare = $('.boardSquare');
 var blackPlayer = {
   stone: "<div class='blackStone stone' x-data='0' y-data='0'></div>",  // stone element to be added to the html
 }
 var whitePlayer = {
   stone: "<div class='whiteStone stone' x-data='0' y-data='0'></div>",  // stone element to be added to the html
-}
-var currentCoordinates = {
-  x: 0,
-  y: 0,
 }
 
 
@@ -62,13 +58,27 @@ function gobanGen() {
     }
     boardContainer.innerHTML+="<br>";
   };
+  switch(goban.size) {
+    case 19:  // If goban.size = 19, trace 9 hoshis
+      console.log('Tracing 9 hoshis (19x19) ...');
+      break;
+    case 13: // If goban.size = 13, trace 9 hoshis
+      console.log('Tracing 9 hoshis (13x13) ...');
+      break;
+    case 9: // If goban.size = 9, trace 4 hoshis
+      console.log('Tracing 4 hoshis (9x9) ...');
+      // 1. Target intersections
+      // 2. Apply specific styles to those intersections
+      // document.getElementsByClassName('boardSquare').style.background="url('../assets/hoshi.svg')";
+      break;
+  }
 }
 gobanGen();
 
 // Stone generation and placement function 
 //  1. Gets X-Y coordinates of clicked board intersection
 //  2. Set those coordinates to temp var "currentCoordinates"
-//  3. Place stone with "currentCoordinates" and adequate color and characteristics
+//  3. Place stone with those targeted coordinates, adequate color and characteristics
 boardContainer.addEventListener('click', function (event) {
   boardContainer.innerHTML+="<div class='blackStone stone' x-data="+event.target.getAttribute('x-data')+" y-data="+event.target.getAttribute('y-data')+"></div>";
   console.log('Stone placed');
