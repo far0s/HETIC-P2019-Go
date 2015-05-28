@@ -10,7 +10,10 @@ h1 {
 #boardContainer {
   line-height: 0;
   max-width: $container-size;
+  max-height: $container-size;
   margin: 50px auto;
+  display: flex;
+  flex-flow: row wrap;
   // border: 4px dotted orange;
   .boardSquare {
     display: inline-block;

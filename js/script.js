@@ -49,6 +49,7 @@ var whitePlayer = {
 
 
 // Goban generation function, depends on goban.size var only
+gobanGen();
 function gobanGen() {
   iy = 0;
   ix = 0;
@@ -60,7 +61,6 @@ function gobanGen() {
     boardContainer.innerHTML+="<br>";
   };
 }
-gobanGen();
 
 function hoshiGen() {
   // Will check for coordinates of last intersection placed
@@ -69,47 +69,58 @@ function hoshiGen() {
   var lastSquareY = boardContainer.lastChild.getAttribute('y-data');
   switch(goban.size) {
     case 19:  // If goban.size = 19, trace 9 hoshis
-      if (
-        ((boardContainer.lastChild.getAttribute('x-data') == 3) && boardContainer.lastChild.getAttribute('y-data') == 3) || 
-        ((boardContainer.lastChild.getAttribute('x-data') == 3) && boardContainer.lastChild.getAttribute('y-data') == 9) || 
-        ((boardContainer.lastChild.getAttribute('x-data') == 3) && boardContainer.lastChild.getAttribute('y-data') == 15) || 
-        ((boardContainer.lastChild.getAttribute('x-data') == 9) && boardContainer.lastChild.getAttribute('y-data') == 3) || 
-        ((boardContainer.lastChild.getAttribute('x-data') == 9) && boardContainer.lastChild.getAttribute('y-data') == 9) ||
-        ((boardContainer.lastChild.getAttribute('x-data') == 9) && boardContainer.lastChild.getAttribute('y-data') == 15) ||
-        ((boardContainer.lastChild.getAttribute('x-data') == 15) && boardContainer.lastChild.getAttribute('y-data') == 3) ||
-        ((boardContainer.lastChild.getAttribute('x-data') == 15) && boardContainer.lastChild.getAttribute('y-data') == 9) ||
-        ((boardContainer.lastChild.getAttribute('x-data') == 15) && boardContainer.lastChild.getAttribute('y-data') == 15) )
-      {
-        boardContainer.lastChild.classList.add('hoshi');
-      };
+      hoshiCheck19();
       break;
     case 13: // If goban.size = 13, trace 9 hoshis
-      if (
-        ((boardContainer.lastChild.getAttribute('x-data') == 3) && boardContainer.lastChild.getAttribute('y-data') == 3) || 
-        ((boardContainer.lastChild.getAttribute('x-data') == 3) && boardContainer.lastChild.getAttribute('y-data') == 6) || 
-        ((boardContainer.lastChild.getAttribute('x-data') == 3) && boardContainer.lastChild.getAttribute('y-data') == 9) || 
-        ((boardContainer.lastChild.getAttribute('x-data') == 6) && boardContainer.lastChild.getAttribute('y-data') == 3) || 
-        ((boardContainer.lastChild.getAttribute('x-data') == 6) && boardContainer.lastChild.getAttribute('y-data') == 6) ||
-        ((boardContainer.lastChild.getAttribute('x-data') == 6) && boardContainer.lastChild.getAttribute('y-data') == 9) ||
-        ((boardContainer.lastChild.getAttribute('x-data') == 9) && boardContainer.lastChild.getAttribute('y-data') == 3) ||
-        ((boardContainer.lastChild.getAttribute('x-data') == 9) && boardContainer.lastChild.getAttribute('y-data') == 6) ||
-        ((boardContainer.lastChild.getAttribute('x-data') == 9) && boardContainer.lastChild.getAttribute('y-data') == 9) )
-      {
-        boardContainer.lastChild.classList.add('hoshi');
-      };
+      hoshiCheck13();
       break;
     case 9: // If goban.size = 9, trace 4 hoshis
-      if (
-          ((boardContainer.lastChild.getAttribute('x-data') == 1) && boardContainer.lastChild.getAttribute('y-data') == 1) || 
-          ((boardContainer.lastChild.getAttribute('x-data') == 1) && boardContainer.lastChild.getAttribute('y-data') == 7) || 
-          ((boardContainer.lastChild.getAttribute('x-data') == 7) && boardContainer.lastChild.getAttribute('y-data') == 1) || 
-          ((boardContainer.lastChild.getAttribute('x-data') == 7) && boardContainer.lastChild.getAttribute('y-data') == 7)) 
-      {
-        boardContainer.lastChild.classList.add('hoshi');
-      };
+      hoshiCheck9();
       break;
   }
 }
+
+function hoshiCheck19() {
+  if (
+    ((boardContainer.lastChild.getAttribute('x-data') == 3) && boardContainer.lastChild.getAttribute('y-data') == 3) || 
+    ((boardContainer.lastChild.getAttribute('x-data') == 3) && boardContainer.lastChild.getAttribute('y-data') == 9) || 
+    ((boardContainer.lastChild.getAttribute('x-data') == 3) && boardContainer.lastChild.getAttribute('y-data') == 15) || 
+    ((boardContainer.lastChild.getAttribute('x-data') == 9) && boardContainer.lastChild.getAttribute('y-data') == 3) || 
+    ((boardContainer.lastChild.getAttribute('x-data') == 9) && boardContainer.lastChild.getAttribute('y-data') == 9) ||
+    ((boardContainer.lastChild.getAttribute('x-data') == 9) && boardContainer.lastChild.getAttribute('y-data') == 15) ||
+    ((boardContainer.lastChild.getAttribute('x-data') == 15) && boardContainer.lastChild.getAttribute('y-data') == 3) ||
+    ((boardContainer.lastChild.getAttribute('x-data') == 15) && boardContainer.lastChild.getAttribute('y-data') == 9) ||
+    ((boardContainer.lastChild.getAttribute('x-data') == 15) && boardContainer.lastChild.getAttribute('y-data') == 15) )
+{
+  boardContainer.lastChild.classList.add('hoshi');
+};
+}
+
+function hoshiCheck13() {
+  if (
+    ((boardContainer.lastChild.getAttribute('x-data') == 3) && boardContainer.lastChild.getAttribute('y-data') == 3) || 
+    ((boardContainer.lastChild.getAttribute('x-data') == 3) && boardContainer.lastChild.getAttribute('y-data') == 6) || 
+    ((boardContainer.lastChild.getAttribute('x-data') == 3) && boardContainer.lastChild.getAttribute('y-data') == 9) || 
+    ((boardContainer.lastChild.getAttribute('x-data') == 6) && boardContainer.lastChild.getAttribute('y-data') == 3) || 
+    ((boardContainer.lastChild.getAttribute('x-data') == 6) && boardContainer.lastChild.getAttribute('y-data') == 6) ||
+    ((boardContainer.lastChild.getAttribute('x-data') == 6) && boardContainer.lastChild.getAttribute('y-data') == 9) ||
+    ((boardContainer.lastChild.getAttribute('x-data') == 9) && boardContainer.lastChild.getAttribute('y-data') == 3) ||
+    ((boardContainer.lastChild.getAttribute('x-data') == 9) && boardContainer.lastChild.getAttribute('y-data') == 6) ||
+    ((boardContainer.lastChild.getAttribute('x-data') == 9) && boardContainer.lastChild.getAttribute('y-data') == 9) ) {
+    boardContainer.lastChild.classList.add('hoshi');
+  }
+};
+
+
+function hoshiCheck9() {
+  if (
+    ((boardContainer.lastChild.getAttribute('x-data') == 1) && boardContainer.lastChild.getAttribute('y-data') == 1) || 
+    ((boardContainer.lastChild.getAttribute('x-data') == 1) && boardContainer.lastChild.getAttribute('y-data') == 7) || 
+    ((boardContainer.lastChild.getAttribute('x-data') == 7) && boardContainer.lastChild.getAttribute('y-data') == 1) || 
+    ((boardContainer.lastChild.getAttribute('x-data') == 7) && boardContainer.lastChild.getAttribute('y-data') == 7)) {
+    boardContainer.lastChild.classList.add('hoshi');
+  }
+};
 
 
 // Stone generation and placement function 
@@ -118,8 +129,10 @@ function hoshiGen() {
 //  3. Place stone with those targeted coordinates, adequate color and characteristics
 boardContainer.addEventListener('click', function (event) {
   boardContainer.innerHTML+="<div class='blackStone stone' x-data="+event.target.getAttribute('x-data')+" y-data="+event.target.getAttribute('y-data')+"></div>";
-  console.log('Stone placed');
-  console.log("X:"+event.target.getAttribute('x-data') +" , "+ "Y:"+event.target.getAttribute('y-data'));
+  if(event.target.classList.has("hoshi")) {
+    console.log('hoshi !');
+  }
+  console.log("Stone placed on : " + "X:"+event.target.getAttribute('x-data') +" , "+ "Y:"+event.target.getAttribute('y-data'));
 });
 
 

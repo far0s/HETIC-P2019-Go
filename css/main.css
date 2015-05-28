@@ -6,7 +6,14 @@ h1 {
 #boardContainer {
   line-height: 0;
   max-width: 540px;
+  max-height: 540px;
   margin: 50px auto;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
 }
 #boardContainer .boardSquare {
   display: inline-block;
