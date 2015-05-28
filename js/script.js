@@ -55,25 +55,62 @@ function gobanGen() {
   for (var iy=0; iy<goban.size; iy++) {
     for (var ix=0; ix<goban.size ; ix++) {
       boardContainer.innerHTML+="<div class='boardSquare' x-data="+ix+" y-data="+iy+"></div>";
+      hoshiGen();
     }
     boardContainer.innerHTML+="<br>";
   };
+}
+gobanGen();
+
+function hoshiGen() {
+  // Will check for coordinates of last intersection placed
+  // If coordinates are in the hoshi group, assign .hoshi class to it
+  var lastSquareX = boardContainer.lastChild.getAttribute('x-data');
+  var lastSquareY = boardContainer.lastChild.getAttribute('y-data');
   switch(goban.size) {
     case 19:  // If goban.size = 19, trace 9 hoshis
-      console.log('Tracing 9 hoshis (19x19) ...');
+      if (
+        ((boardContainer.lastChild.getAttribute('x-data') == 3) && boardContainer.lastChild.getAttribute('y-data') == 3) || 
+        ((boardContainer.lastChild.getAttribute('x-data') == 3) && boardContainer.lastChild.getAttribute('y-data') == 9) || 
+        ((boardContainer.lastChild.getAttribute('x-data') == 3) && boardContainer.lastChild.getAttribute('y-data') == 15) || 
+        ((boardContainer.lastChild.getAttribute('x-data') == 9) && boardContainer.lastChild.getAttribute('y-data') == 3) || 
+        ((boardContainer.lastChild.getAttribute('x-data') == 9) && boardContainer.lastChild.getAttribute('y-data') == 9) ||
+        ((boardContainer.lastChild.getAttribute('x-data') == 9) && boardContainer.lastChild.getAttribute('y-data') == 15) ||
+        ((boardContainer.lastChild.getAttribute('x-data') == 15) && boardContainer.lastChild.getAttribute('y-data') == 3) ||
+        ((boardContainer.lastChild.getAttribute('x-data') == 15) && boardContainer.lastChild.getAttribute('y-data') == 9) ||
+        ((boardContainer.lastChild.getAttribute('x-data') == 15) && boardContainer.lastChild.getAttribute('y-data') == 15) )
+      {
+        boardContainer.lastChild.classList.add('hoshi');
+      };
       break;
     case 13: // If goban.size = 13, trace 9 hoshis
-      console.log('Tracing 9 hoshis (13x13) ...');
+      if (
+        ((boardContainer.lastChild.getAttribute('x-data') == 3) && boardContainer.lastChild.getAttribute('y-data') == 3) || 
+        ((boardContainer.lastChild.getAttribute('x-data') == 3) && boardContainer.lastChild.getAttribute('y-data') == 6) || 
+        ((boardContainer.lastChild.getAttribute('x-data') == 3) && boardContainer.lastChild.getAttribute('y-data') == 9) || 
+        ((boardContainer.lastChild.getAttribute('x-data') == 6) && boardContainer.lastChild.getAttribute('y-data') == 3) || 
+        ((boardContainer.lastChild.getAttribute('x-data') == 6) && boardContainer.lastChild.getAttribute('y-data') == 6) ||
+        ((boardContainer.lastChild.getAttribute('x-data') == 6) && boardContainer.lastChild.getAttribute('y-data') == 9) ||
+        ((boardContainer.lastChild.getAttribute('x-data') == 9) && boardContainer.lastChild.getAttribute('y-data') == 3) ||
+        ((boardContainer.lastChild.getAttribute('x-data') == 9) && boardContainer.lastChild.getAttribute('y-data') == 6) ||
+        ((boardContainer.lastChild.getAttribute('x-data') == 9) && boardContainer.lastChild.getAttribute('y-data') == 9) )
+      {
+        boardContainer.lastChild.classList.add('hoshi');
+      };
       break;
     case 9: // If goban.size = 9, trace 4 hoshis
-      console.log('Tracing 4 hoshis (9x9) ...');
-      // 1. Target intersections
-      // 2. Apply specific styles to those intersections
-      // document.getElementsByClassName('boardSquare').style.background="url('../assets/hoshi.svg')";
+      if (
+          ((boardContainer.lastChild.getAttribute('x-data') == 1) && boardContainer.lastChild.getAttribute('y-data') == 1) || 
+          ((boardContainer.lastChild.getAttribute('x-data') == 1) && boardContainer.lastChild.getAttribute('y-data') == 7) || 
+          ((boardContainer.lastChild.getAttribute('x-data') == 7) && boardContainer.lastChild.getAttribute('y-data') == 1) || 
+          ((boardContainer.lastChild.getAttribute('x-data') == 7) && boardContainer.lastChild.getAttribute('y-data') == 7)) 
+      {
+        boardContainer.lastChild.classList.add('hoshi');
+      };
       break;
   }
 }
-gobanGen();
+
 
 // Stone generation and placement function 
 //  1. Gets X-Y coordinates of clicked board intersection
@@ -100,7 +137,7 @@ boardContainer.addEventListener('click', function (event) {
     - Set the turn to the other player (if black just played, it's white's turn) ;
 */
 
-/* Stones interaction planning
+/* Stones interaction planning 
   - When a stone is placed (i.e mouseclick event) :
     - Check adjacent environment : 
       - IF the placed stone has 0 liberties right from the start :

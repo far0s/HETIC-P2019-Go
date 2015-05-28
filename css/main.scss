@@ -1,6 +1,7 @@
 $stone-size: 60px;
 $intersection: url('../assets/intersection.svg');
 $hoshi: url('../assets/hoshi.svg');
+$container-size: 540px; //540px for 9, 780px for 13, 1140px for 19 // TEMP
 
 h1 {
   float: left;
@@ -8,9 +9,9 @@ h1 {
 }
 #boardContainer {
   line-height: 0;
-  max-width: 540px;
+  max-width: $container-size;
   margin: 50px auto;
-  border: 4px dotted orange;
+  // border: 4px dotted orange;
   .boardSquare {
     display: inline-block;
     box-sizing: border-box;
@@ -25,10 +26,10 @@ h1 {
     &:hover {
       background-color: red;
     }
-    .hoshi {
-      background: $hoshi;
-      background-size: contain; 
-    }
+  }
+  .hoshi {
+    background: $hoshi;
+    background-size: contain; 
   }
   .stone {
     width: $stone-size;
