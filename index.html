@@ -1,25 +1,26 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>Sauce Samouraï - Jeu de Go</title>
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
-</head>
-<body>
-  <div id="menu">
-    <!-- Display pre-game options : goban size (19x19/9x9), opponent (humain/AI), various miscellaneous options -->
-  </div>
-  <div id="boardContainer">
-    <!-- Display goban (19x19, 9x9, or whatever format) -->
-  </div>
-  <div id="hud">
-    <!-- Display whose turn it is -->
-    <!-- Display score informations, prisoners and territory -->
-    <!-- Display time -->
-  </div>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Jeu de go</title>
+    <link type="text/css" href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="main">
+      <!-- React components goes here -->
+    </div>
+    <div id="hud">
+      Black is starting
+      <div id="turnIndicator">
+        <div id="turnBlack" class="activeTurn"></div>
+        <div id="turnWhite"></div>
+      </div>
+    </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script src="js/script.js"></script>
-</body>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.8.0/react.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.8.0/JSXTransformer.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+    <script type="text/javascript" src="board.js"></script>
+    <script type="text/jsx" src="go.js"></script>
+  </body>
 </html>

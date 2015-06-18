@@ -1,0 +1,86 @@
+#alerts {
+  height: 40px;
+  line-height: 40px;
+}
+
+#pass-btn {
+}
+
+#board {
+  position: relative;
+}
+
+.intersection {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  position: absolute;
+  box-sizing: border-box;
+  transition: all 0.3s;
+}
+
+.intersection:before {
+  border-top: 2px #000 solid;
+  width: 40px;
+  display: block;
+  content: "";
+  top: 18px;
+  position: absolute;
+  z-index: -1;
+  transition: all 0.3s;
+}
+
+.intersection:hover:before, .intersection:hover:after {
+  border-color: red;
+  color: red;
+  transition: all 0.3s;
+}
+
+.intersection:after {
+  border-left: 2px #000 solid;
+  height: 40px;
+  display: block;
+  content: "";
+  left: 18px;
+  top: 0px;
+  position: absolute;
+  z-index: -1;
+  transition: all 0.3s;
+}
+
+.intersection.black, .intersection.white {
+  border: 1px solid #000;
+}
+
+.intersection.black {
+  background-color: #444;
+}
+
+.intersection.white {
+  background-color: #eee;
+}
+
+#turnIndicator {
+  margin-top: 50px;
+}
+
+#turnIndicator > div {
+  width: 100px;
+  height: 40px;
+  box-sizing: border-box;
+  border: 2px solid #444;
+  float: left;
+  transition: 0.5s ease-in-out;
+}
+
+#turnBlack {
+  background-color: #444;
+}
+
+#turnWhite {
+  background-color: #eee;
+}
+
+.activeTurn {
+  box-shadow: 0px 0px 15px #444;
+}
