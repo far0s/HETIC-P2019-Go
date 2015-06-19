@@ -14,18 +14,17 @@ is composed of four 1st year students at HETIC :
 
 ## Roadmap
 
-*Must-have* functionalities :
-- Draw Goban (board) : :heavy_check_mark:
-- Implement basic Go rules (atari/ko/etc.) : :heavy_check_mark: (still work to do on ko)
-- The app allows PvP local game : :heavy_check_mark:
-- Score count : :check: (is displayed at the end of the game, as we want the game to )
-- Winner/loser detection : :heavy_check_mark:
+Primary and high-priority functionnalities to add :
+- The app can save a save into a "partie.txt" file
+- The app can load a save from a "partie.txt" file
+- The app allows player against player game
+- The app allows player againt AI game
+- Implement basic Go rules
+- Score count
+- Identify end-game and winner/loser
 
-*Should-have* functionalities : 
-- The app allows PvP online game : will need node.js implementation to create rooms
-- Story serving as an introduction to the game : :heavy_check_mark:
-- Tutorial mode activable as an option : :heavy_check_mark:
-
-*Nice-to-have* functionalities : 
-- The app allows player againt AI game : will need heavy algorithmic work, not sure we have the time...
-
+"partie.txt" : 
+for 9x9 goban, there will be 10 lignes (9+1) with 9 characters on each line except last line, which will have only one character.
+The 9 first lines represents le saved goban with ' ' (spaces)
+For an intersection without stone, 'N' black stones and 'b' for white stones
+The last line only contains 'n' or 'b' depending of whose turn it is.
