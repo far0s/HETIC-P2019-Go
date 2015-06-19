@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html>
 <head>
   <meta charset="UTF-8">
@@ -6,6 +7,71 @@
   <link type="text/css" href="style.css" rel="stylesheet" />
 </head>
 <body>
+=======
+<html >
+<head>
+  <meta charset="UTF-8"> 
+  <title>Sauce Samouraï - GO</title>
+  <meta name="viewport" content="width=device-width">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.8.0/react.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.8.0/JSXTransformer.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css"> 
+  <link rel="stylesheet" href="css/go.css"> 
+</head>
+<body>
+  <div class="book bound">
+    <div class="pages">
+      <div class="page">01</div>
+      <div class="page">02</div>
+      <div class="page">03</div>
+      <div class="page">04</div>
+      <div class="page">05</div>
+      <div class="page">06</div>
+      <div class="page">07</div>
+      <div class="page">08</div>
+      <div class="page">09</div>
+      <div class="page">10</div>
+      <div class="page">11</div>
+      <div class="page">12</div>
+      <div class="page">13</div>
+      <div class="page">14</div>
+      <div class="page">15</div>
+      <div class="page">16</div>
+      <div class="page">17</div>
+      <div class="page">18</div>
+      <div class="page">19</div>
+      <div class="page">20</div>
+    </div>
+  </div>
+
+  <div id="menu">
+    <ul>
+      <span>Mode de jeu :</span>
+      <li><button>Player vs Player (Local)</button></li>
+      <li><button disabled="true">Player vs Player (Online)</button></li>
+      <li><button disabled="true">Player vs A.I</button></li>
+    </ul>
+    <label for="tutorialChecker">Tutorial ?</label>
+    <input type="checkbox" name="tutorialChecker" id="tutorialChecker">
+    <ul>
+      <span>Taille :</span>
+      <li><button id="setSize9" onclick="setSize(9)" data-size="9">9 X 9</button></li>
+      <li><button id="setSize13" onclick="setSize(13)" data-size="13">13 x 13</button></li>
+      <li><button id="setSize19" onclick="setSize(19)" data-size="19">19 x 19</button></li>
+    </ul>
+    <ul>
+      <span>Thème :</span>
+      <li><button>Traditionnel</button></li>
+      <li><button disabled="true">Coloré</button></li>
+      <li><button disabled="true">Daltonien</button></li>
+    </ul>
+    <button id="startGo" onclick="runGo()">Démarrer la bataille</button>
+  </div>
+
+>>>>>>> Book
   <div id="main">
     <!-- React components goes here -->
   </div>
@@ -17,19 +83,31 @@
     </div>
   </div>
 
+<<<<<<< HEAD
   <script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.8.0/react.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.8.0/JSXTransformer.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
   <script type="text/javascript" src="board.js"></script>
   <script type="text/jsx"> // This is the 'go.js' file inline, this is a temporary fix to make it work in development
+=======
+  <script src="js/index.js"></script>
+  <script type="text/javascript" src="js/board.js"></script>
+  <script type="text/jsx">
+>>>>>>> Book
     /** @jsx React.DOM */
     var GRID_SIZE = 40;
     var user_size = 9;
 
+<<<<<<< HEAD
     user_size = prompt("Taille du jeu de Go : 19 / 13 / 9 ?");
     if(user_size === ""){
       user_size = 9;
+=======
+    function setSize(size) {
+      user_size = size;
+      console.log(user_size);
+>>>>>>> Book
     }
 
     var BoardIntersection = React.createClass({
@@ -42,11 +120,17 @@
           top: this.props.row * GRID_SIZE,
           left: this.props.col * GRID_SIZE
         };
+<<<<<<< HEAD
 
         var classes = "intersection";
         if (this.props.color != Board.EMPTY)
           classes += this.props.color == Board.BLACK ? " black" : " white";
 
+=======
+        var classes = "intersection";
+        if (this.props.color != Board.EMPTY)
+          classes += this.props.color == Board.BLACK ? " black" : " white";
+>>>>>>> Book
         return (
           <div onClick={this.handleClick} 
           className={classes} style={style}></div>
@@ -54,6 +138,7 @@
       }
     });
 
+<<<<<<< HEAD
     var BoardView = React.createClass({
       render: function() {
         var intersections = [];
@@ -128,3 +213,81 @@
     </script>
   </body>
   </html>
+=======
+    function runGo() {
+      var BoardView = React.createClass({
+        render: function() {
+          var intersections = [];
+          for (var i = 0; i < this.props.board.size; i++)
+            for (var j = 0; j < this.props.board.size; j++)
+              intersections.push(BoardIntersection({
+                board: this.props.board,
+                color: this.props.board.board[i][j],
+                row: i,
+                col: j,
+                onPlay: this.props.onPlay
+              }));
+            var style = {
+              width: this.props.board.size * GRID_SIZE,
+              height: this.props.board.size * GRID_SIZE
+            };
+            return <div style={style} id="board">{intersections}</div>
+          }
+        });
+
+      var AlertView = React.createClass({
+        render: function() {
+          var text = "";
+          if (this.props.board.in_atari)
+            text = "ATARI!";
+          else if (this.props.board.attempted_suicide)
+            text = "SUICIDE!";
+
+          return (
+            <div id="alerts">{text}</div>
+            );
+        }
+      });
+
+      var PassView = React.createClass({
+        handleClick: function(e) {
+          this.props.board.pass();
+        },
+        render: function() {
+          return (
+            <input id="pass-btn" type="button" value="Pass" 
+            onClick={this.handleClick} />
+            );
+        }
+      });
+
+      var board = new Board(user_size);
+
+      var ContainerView = React.createClass({
+        getInitialState: function() {
+          return {'board': this.props.board};
+        },
+        onBoardUpdate: function() {
+          this.setState({"board": this.props.board});
+        },
+        render: function() {
+          return (
+            <div>
+              <AlertView board={this.state.board} />
+              <PassView board={this.state.board} />
+              <BoardView board={this.state.board} 
+              onPlay={this.onBoardUpdate.bind(this)} />
+            </div>
+            )
+        }
+      });
+
+      React.renderComponent(
+        <ContainerView board={board} />,
+        document.getElementById('main')
+        );
+    }
+  </script>
+</body>
+</html>
+>>>>>>> Book
