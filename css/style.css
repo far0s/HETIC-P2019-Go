@@ -268,7 +268,9 @@ body {
 
 #menu {
   background-color: lightgrey;
-  position: relative;
-  left: -400px;
   z-index: 1;
+}
+
+.hiddenMenu {
+  display: none;
 }

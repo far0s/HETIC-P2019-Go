@@ -1,6 +1,8 @@
-#main {
+#game {
+  display: none;
   z-index: 1;
 }
+
 
 #alerts {
   height: 40px;

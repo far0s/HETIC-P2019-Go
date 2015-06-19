@@ -33,12 +33,12 @@
       <div class="page">16</div>
       <div class="page">17</div>
       <div class="page">18</div>
-      <div class="page">19</div>
-      <div class="page">20</div>
+      <div class="page" onclick="$('#menu').removeClass('hiddenMenu');">19</div>
+      <div class="page" onclick="$('#menu').addClass('hiddenMenu');">20</div>
     </div>
   </div>
 
-  <div id="menu">
+  <div id="menu" class="hiddenMenu">
     <ul>
       <span>Mode de jeu :</span>
       <li><button>Player vs Player (Local)</button></li>
@@ -62,14 +62,16 @@
     <button id="startGo" onclick="runGo()">Démarrer la bataille</button>
   </div>
 
-  <div id="main">
-    <!-- React components goes here -->
-  </div>
-  <div id="hud">
-    Black is starting
-    <div id="turnIndicator">
-      <div id="turnBlack" class="activeTurn"></div>
-      <div id="turnWhite"></div>
+  <div id="game">
+    <div id="main">
+      <!-- React components goes here -->
+    </div>
+    <div id="hud">
+      Black is starting
+      <div id="turnIndicator">
+        <div id="turnBlack" class="activeTurn"></div>
+        <div id="turnWhite"></div>
+      </div>
     </div>
   </div>
 
@@ -177,6 +179,8 @@
         <ContainerView board={board} />,
         document.getElementById('main')
         );
+
+      $('#game').css('display','block')
     }
   </script>
 </body>
