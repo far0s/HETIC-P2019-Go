@@ -1,12 +1,11 @@
 #game {
   display: none;
   z-index: 1;
-  min-width: 700px;
-  margin-left: 200px;
-  margin-right: 200px;
-  /*vertical-align: middle;*/
+  min-width: 360px;
+  margin-right: 550px;
+  vertical-align: middle;
+  text-align: center;
 }
-
 
 #alerts {
   height: 40px;
