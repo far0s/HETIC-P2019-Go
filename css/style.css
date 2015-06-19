@@ -1,5 +1,6 @@
 .book {
   transition: opacity 0.4s 0.2s;
+  transition: -webkit-transform 0.5s ease-out;
   transition: transform 0.5s ease-out;
 }
 .page {
@@ -198,62 +199,76 @@ body {
 }
 .page:nth-child(1) {
   background-image: url(../imgs/bh_cover_f.png);
-  z-index: 1;
+  z-index: 10;
 }
 .page:nth-child(2),
 .page:nth-child(3) {
   background-image: url(../imgs/bh_end_01.png);
-  z-index: 2;
+  z-index: 11;
 }
 .page:nth-child(4),
 .page:nth-child(5) {
   background-image: url(../imgs/bh_spread_00000.png);
-  z-index: 3;
+  z-index: 12;
 }
 .page:nth-child(6),
 .page:nth-child(7) {
   background-image: url(../imgs/bh_spread_00001.png);
-  z-index: 4;
+  z-index: 13;
 }
 .page:nth-child(8),
 .page:nth-child(9) {
   background-image: url(../imgs/bh_spread_00002.png);
-  z-index: 5;
+  z-index: 14;
 }
 .page:nth-child(10),
 .page:nth-child(11) {
   background-image: url(../imgs/bh_spread_00003.png);
-  z-index: 6;
+  z-index: 15;
 }
 .page:nth-child(12),
 .page:nth-child(13) {
   background-image: url(../imgs/bh_spread_00004.png);
-  z-index: 7;
+  z-index: 16;
 }
 .page:nth-child(14),
 .page:nth-child(15) {
   background-image: url(../imgs/bh_spread_00005.png);
-  z-index: 8;
+  z-index: 17;
 }
 .page:nth-child(16),
 .page:nth-child(17) {
   background-image: url(../imgs/bh_spread_00006.png);
-  z-index: 9;
+  z-index: 18;
 }
 
 .page:nth-child(18),
 .page:nth-child(19) {
   background-image: url(../imgs/bh_end_02.png);
-  z-index: 10;
+  z-index: 19;
 }
 
 
 .page:nth-child(20) {
   background-image: url(../imgs/bh_cover_b.png);
-  z-index: 11;
+  z-index: 20;
 
 }
 
 .swiped {
-  transform: translateX(-2000px);
+  -webkit-transform: translateX(-2000px);
+          transform: translateX(-2000px);
+}
+
+
+/* For aligning #menu behind .book, not functioning atm */
+.book {
+  z-index: 1;
+}
+
+#menu {
+  background-color: lightgrey;
+  position: relative;
+  left: -400px;
+  z-index: 1;
 }
