@@ -1,7 +1,7 @@
 .book {
   transition: opacity 0.4s 0.2s;
   transition: -webkit-transform 0.5s ease-out;
-  transition: transform 0.5s ease-out;
+  transition: transform 1s ease-out;
 }
 .page {
   width: 36vw;
@@ -269,6 +269,10 @@ body {
 #menu {
   background-color: lightgrey;
   z-index: 1;
+  position: relative;
+  margin-left: -400px;
+  margin-top: -100px;
+  transition: all 1s ease-out;
 }
 
 .hiddenMenu {
