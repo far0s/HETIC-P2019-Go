@@ -1,9 +1,10 @@
+#main {
+  z-index: 1;
+}
+
 #alerts {
   height: 40px;
   line-height: 40px;
-}
-
-#pass-btn {
 }
 
 #board {
