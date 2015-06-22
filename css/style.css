@@ -267,7 +267,7 @@ body {
 }
 
 #menu {
-  background-color: lightgrey;
+  background-color: none;
   z-index: 1;
   position: relative;
   margin-left: -400px;
