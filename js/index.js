@@ -26,3 +26,8 @@ $(window).load(function() {
   });
   $('.book').addClass('bound');
 });
+
+$('#menu li').click(function() {
+  $('.activeMode').removeClass('activeMode');
+  $(this).addClass('activeMode');
+});

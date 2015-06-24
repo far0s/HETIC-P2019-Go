@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css"> 
   <link rel="stylesheet" href="css/go.css"> 
+  <link rel="icon" href="imgs/favicon.ico" />
 </head>
 <body>
   <div class="book bound">
@@ -40,11 +41,11 @@
 
   <div id="menu" class="hiddenMenu">
     <ul>
-      <span>Mode de jeu :</span>
-      <li><button>Player vs Player (Local)</button></li>
-      <li><button disabled="true">Player vs A.I (Local)</button></li>
+      <li><a>Jouer contre un Ami</a></li>
+      <li><a disabled="true">Jouer contre l'ordinateur</a></li>
     </ul>
-    <label for="tutorialChecker">Tutorial ? <input type="checkbox" name="tutorialChecker" id="tutorialChecker"></label>
+    
+    <label for="tutorialChecker">Activer le didacticiel <input type="checkbox" name="tutorialChecker" id="tutorialChecker"></label><br>
     <a id="startGo" onclick="runGo()">Demarrer la bataille</a>
   </div>
 
