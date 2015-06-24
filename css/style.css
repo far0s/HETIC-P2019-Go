@@ -1,6 +1,7 @@
 star.book {
   transition: opacity 0.4s 0.2s;
   transition: -webkit-transform 0.5s ease-out;
+  transition: -webkit-transform 1s ease-out;
   transition: transform 1s ease-out;
 }
 .page {
@@ -277,6 +278,7 @@ body {
   position: relative;
   margin-left: -400px;
   margin-top: -100px;
+<<<<<<< Updated upstream
   transition: all 1s ease-out;
   margin-bottom: 30px;
   cursor:  pointer;
@@ -305,12 +307,14 @@ body {
 
 .activeMode {
   color: black;
+=======
+  transition: all 2s ease-out;
+>>>>>>> Stashed changes
 }
 
 .hiddenMenu {
   display: none;
 }
-
 
 #startGo{
   margin-top: 70px;
@@ -329,7 +333,4 @@ body {
 #menu label{
   margin-top: 10px;
   margin-left: 65px;
-
 }
-
-

@@ -14,12 +14,8 @@ Board.WHITE = 2;
 /*
  * Write an alert in #alerts, waits a bit before erasing it
  */
-function alertWrite(alert, delay) {
-  document.getElementById('alerts').innerHTML=alert;
-  setTimeout(alertErase, delay);
-  function alertErase() {
-    document.getElementById('alerts').innerHTML="";
-  }
+function alertWrite(alert) {
+  document.getElementById('alerts').innerHTML+=alert+"<br>";
 }
 
 /*
@@ -41,7 +37,6 @@ function alertWrite(alert, delay) {
  Board.prototype.switch_player = function() {
   this.current_color = 
   this.current_color == Board.BLACK ? Board.WHITE : Board.BLACK;
-  // console.log(this.current_color);
   var turnBlack = document.getElementById('turnBlack');
   var turnWhite = document.getElementById('turnWhite');
   if (this.current_color === 1){
@@ -59,11 +54,11 @@ function alertWrite(alert, delay) {
  * At any point in the game, a player can pass and let his opponent play
  */
  Board.prototype.pass = function() {
-  // console.log('player passed');
   if (this.last_move_passed)
     this.end_game();
   else {
-    alertWrite("Player passed !", 1500);
+    var alert = "<div class='alert'>Player passed !</div";
+    alertWrite(alert, 1500);
   }
   this.last_move_passed = true;
   this.switch_player();
@@ -79,21 +74,18 @@ function alertWrite(alert, delay) {
   blackScore+=0.5;
   var whiteScore = document.querySelectorAll('.white').length;
   if (blackScore > whiteScore){
-    alertWrite('Black wins !', 5000);
-    // console.log('Black : ' + blackScore);
-    // console.log('White : ' + whiteScore);
+    var alert = "<div class='alert'>Black wins !</div";
+    alertWrite(alert);
   } else {
-    alertWrite('White wins ! ', 5000);
+    var alert = "<div class='alert'>White wins !</div";
+    alertWrite(alert);
   }
-  document.write('Black : '+blackScore+'  White : '+whiteScore);
 };
 
 /*
  * Attempt to place a stone at (i,j). Returns true if the move was legal
  */
  Board.prototype.play = function(i, j) {
-  // console.log("Played at "+i+", "+j);
-  alertWrite("Played at "+i+", "+j, 1500);
   this.attempted_suicide = this.in_atari = false;
 
   if (this.board[i][j] != Board.EMPTY)
@@ -122,7 +114,8 @@ function alertWrite(alert, delay) {
     if (_.isEmpty(captured) && this.get_group(i, j)["liberties"] == 0) {
       this.board[i][j] = Board.EMPTY;
       this.attempted_suicide = true;
-      alertWrite("Suicide is not allowed", 1500);
+      var alert = "<div class='alert'>Suicide is not allowed !</div";
+      alertWrite(alert);
       return false;
     }
 
@@ -130,7 +123,8 @@ function alertWrite(alert, delay) {
     _.each(captured, function(group) {
       _.each(group["stones"], function(stone) {
         self.board[stone[0]][stone[1]] = Board.EMPTY;
-        alertWrite("Group captured !", 1500);
+        var alert = "<div class='alert'>Group captured !</div";
+        alertWrite(alert);
       });
     });
 
