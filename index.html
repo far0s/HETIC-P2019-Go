@@ -113,10 +113,10 @@
       var AlertView = React.createClass({
         render: function() {
           var text = "";
-          // if (this.props.board.in_atari)
-          //   text = "ATARI!";
-          // else if (this.props.board.attempted_suicide)
-          //   text = "SUICIDE!";
+          if (this.props.board.in_atari)
+            text = "ATARI!";
+          else if (this.props.board.attempted_suicide)
+            text = "SUICIDE!";
           return (
             <div id="alerts"><span>Notifications</span><br/>{text}</div>
             );

@@ -15,7 +15,16 @@ Board.WHITE = 2;
  * Write an alert in #alerts, waits a bit before erasing it
  */
 function alertWrite(alert) {
-  document.getElementById('alerts').innerHTML+=alert+"<br>";
+  var alerts = document.getElementById('alerts');
+  var firstAlert = document.getElementsByClassName('alert')[1];
+  var muchAlerts = document.querySelectorAll('#alerts .alert').length;
+  if (muchAlerts > 5) {
+    // remove the first .alert in #alerts before adding a new one
+    alerts.removeChild(firstAlert);
+    alerts.innerHTML+=alert+"<br>";
+  } else {
+    document.getElementById('alerts').innerHTML+=alert+"<br>";
+  }
 }
 
 /*
@@ -57,7 +66,7 @@ function alertWrite(alert) {
   if (this.last_move_passed)
     this.end_game();
   else {
-    var alert = "<div class='alert'>Player passed !</div";
+    var alert = "<div class='alert'>Le joueur a passé !</div";
     alertWrite(alert, 1500);
   }
   this.last_move_passed = true;
@@ -68,16 +77,16 @@ function alertWrite(alert) {
  * Called when the game ends (both players passed)
  */
  Board.prototype.end_game = function() {
-  alertWrite("Both players passed ! Game over", 3000);
+  alertWrite("Les deux joueurs ont passé ! Fin du jeu.", 3000);
   // Add End score count
   var blackScore = document.querySelectorAll('.black').length;
   blackScore+=0.5;
   var whiteScore = document.querySelectorAll('.white').length;
   if (blackScore > whiteScore){
-    var alert = "<div class='alert'>Black wins !</div";
+    var alert = "<div class='alert'>Les soldats ont gagné !</div";
     alertWrite(alert);
   } else {
-    var alert = "<div class='alert'>White wins !</div";
+    var alert = "<div class='alert'>Les villageois ont gagné!</div";
     alertWrite(alert);
   }
 };
@@ -114,7 +123,7 @@ function alertWrite(alert) {
     if (_.isEmpty(captured) && this.get_group(i, j)["liberties"] == 0) {
       this.board[i][j] = Board.EMPTY;
       this.attempted_suicide = true;
-      var alert = "<div class='alert'>Suicide is not allowed !</div";
+      var alert = "<div class='alert'>Le suicide n'est pas permis !</div";
       alertWrite(alert);
       return false;
     }
@@ -123,9 +132,9 @@ function alertWrite(alert) {
     _.each(captured, function(group) {
       _.each(group["stones"], function(stone) {
         self.board[stone[0]][stone[1]] = Board.EMPTY;
-        var alert = "<div class='alert'>Group captured !</div";
-        alertWrite(alert);
       });
+      var alert = "<div class='alert'>Un groupe a été capturé !</div";
+      alertWrite(alert);
     });
 
     if (atari)

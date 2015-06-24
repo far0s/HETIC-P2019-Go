@@ -21,10 +21,12 @@
   z-index: 1;
   width: 980px;
   height: 520px;
-  background-color: #e29742;
-  border: solid 10px orange;
+  background: url('../imgs/tabledesign.png') center center  no-repeat;
+  background-size: contain;
+  /*border: solid 10px orange;*/
   border-radius: 20px;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  font-family: 'SofiaProLight', sans-serif;
 }
 
 .intersection {
@@ -37,7 +39,7 @@
 }
 
 .intersection:before {
-  border-top: 2px #9a3637 solid;
+  border-top: 2px #000 solid;
   width: 40px;
   display: block;
   content: "";
@@ -66,13 +68,13 @@
 }
 
 .intersection.black {
-  background-color: #427893;
+  background-color: #9C3533;
   /*border: 2px solid white; */
   /*box-shadow: 0px 0px 10px black;*/
 }
 
 .intersection.white {
-  background-color: #f28e2e;
+  background-color: #427893;
   /*border: 2px solid white; */
 }
 
@@ -89,11 +91,11 @@
 }
 
 #turnBlack {
-  background-color: #427893;
+  background-color: #9C3533;
 }
 
 #turnWhite {
-  background-color: #f28e2e;
+  background-color: #427893;
 }
 
 .activeTurn {
@@ -112,15 +114,18 @@
   line-height: 30px;
   font-size: 20px;
   color: white;
+  transition: all 0.3s;
 }
 
 .alert {
   background: url('../imgs/alertbg.svg') 5% center no-repeat, #973739;
   background-size: 20%;
   height: 50px;
+  width: 100%;
   font-size: 16px;
-  padding: 10px;
+  padding: 10px 15px 10px 10px;
   margin: 5px auto;
+  text-align: right;
 }
 
 #alerts, #board, #hud, #turnIndicator, #pass-btn {
