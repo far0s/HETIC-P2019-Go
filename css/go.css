@@ -1,6 +1,9 @@
+#alerts, #board, #turnIndicator, #pass-btn {
+  z-index: 10;
+}
+
 #game {
   display: none;
-  z-index: 1;
   min-width: 360px;
   margin-right: 550px;
   vertical-align: middle;
@@ -14,6 +17,18 @@
 
 #board {
   position: relative;
+}
+
+#table {
+  position: absolute;
+  top: 100px;
+  left: 350px;
+  z-index: 1;
+  width: 700px;
+  height: 500px;
+  background-color: #e29742;
+  border: solid 10px orange;
+  border-radius: 20px;
 }
 
 .intersection {
@@ -54,18 +69,19 @@
   transition: all 0.3s;
 }
 
-
-
 .intersection.black {
   background-color: #427893;
+  border: 2px solid white; 
 }
 
 .intersection.white {
   background-color: #f28e2e;
+  border: 2px solid white; 
 }
 
 #turnIndicator {
   margin-top: 50px;
+  margin-left: 80px;
 }
 
 #turnIndicator > div {
