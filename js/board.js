@@ -14,7 +14,7 @@ Board.WHITE = 2;
 /*
  * Write an alert in #alerts, waits a bit before erasing it
  */
-function alertWrite(alert) {
+ function alertWrite(alert) {
   var alerts = document.getElementById('alerts');
   var firstAlert = document.getElementsByClassName('alert')[1];
   var muchAlerts = document.querySelectorAll('#alerts .alert').length;
@@ -54,20 +54,42 @@ function alertWrite(alert) {
     turnBlack.className="activeTurn";
   } else if (this.current_color === 2){
      // Remove .activeTurn from turnBlack and set it to turnWhite
-    turnBlack.className="";
-    turnWhite.className="activeTurn";
+     turnBlack.className="";
+     turnWhite.className="activeTurn";
+   }
+   function passCheck() {
+    var passbtn = document.getElementById('pass-btn');
+    if(passbtn.className === "passBlue"){
+      passbtn.className="passBlue";
+      passbtn.className="passRed";
+    }else{
+      passbtn.className="passRed";
+      passbtn.className="passBlue";
+    }
   }
+  passCheck();
 };
 
 /*
  * At any point in the game, a player can pass and let his opponent play
  */
  Board.prototype.pass = function() {
+  function passCheck() {
+    var passbtn = document.getElementById('pass-btn');
+    if(passbtn.className === "passBlue"){
+      passbtn.className="passBlue";
+      passbtn.className="passRed";
+    }else{
+      passbtn.className="passRed";
+      passbtn.className="passBlue";
+    }
+  }
+  passCheck();
   if (this.last_move_passed)
     this.end_game();
   else {
     var alert = "<div class='alert'>Le joueur a passé !</div";
-    alertWrite(alert, 1500);
+    alertWrite(alert);
   }
   this.last_move_passed = true;
   this.switch_player();
