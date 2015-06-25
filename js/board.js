@@ -14,7 +14,7 @@ Board.WHITE = 2;
 /*
  * Write an alert in #alerts, waits a bit before erasing it
  */
-function alertWrite(alert) {
+ function alertWrite(alert) {
   var alerts = document.getElementById('alerts');
   var firstAlert = document.getElementsByClassName('alert')[1];
   var muchAlerts = document.querySelectorAll('#alerts .alert').length;
@@ -48,16 +48,19 @@ function alertWrite(alert) {
   this.current_color == Board.BLACK ? Board.WHITE : Board.BLACK;
   var turnBlack = document.getElementById('turnBlack');
   var turnWhite = document.getElementById('turnWhite');
+  var passbtn = document.getElementById('pass-btn');
   if (this.current_color === 1){
     // Remove .activeTurn from turnWhite and set it to turnBlack
     turnWhite.className="";
     turnBlack.className="activeTurn";
+    passbtn.className="passBlue";
   } else if (this.current_color === 2){
      // Remove .activeTurn from turnBlack and set it to turnWhite
-    turnBlack.className="";
-    turnWhite.className="activeTurn";
-  }
-};
+     turnBlack.className="";
+     turnWhite.className="activeTurn";
+     passbtn.className="passRed";
+   }
+ };
 
 /*
  * At any point in the game, a player can pass and let his opponent play
@@ -67,7 +70,7 @@ function alertWrite(alert) {
     this.end_game();
   else {
     var alert = "<div class='alert'>Le joueur a passé !</div";
-    alertWrite(alert, 1500);
+    alertWrite(alert);
   }
   this.last_move_passed = true;
   this.switch_player();
@@ -77,18 +80,19 @@ function alertWrite(alert) {
  * Called when the game ends (both players passed)
  */
  Board.prototype.end_game = function() {
-  alertWrite("Les deux joueurs ont passé ! Fin du jeu.", 3000);
   // Add End score count
   var blackScore = document.querySelectorAll('.black').length;
   blackScore+=0.5;
   var whiteScore = document.querySelectorAll('.white').length;
   if (blackScore > whiteScore){
-    var alert = "<div class='alert'>Les soldats ont gagné !</div";
+    var alert = "<div class='alert'>Les deux joueurs ont passé !<br> Les soldats ont gagné !</div";
     alertWrite(alert);
   } else {
-    var alert = "<div class='alert'>Les villageois ont gagné!</div";
+    var alert = "<div class='alert'>Les deux joueurs ont passé !<br> Les villageois ont gagné!</div";
     alertWrite(alert);
   }
+  var alert = "<div class='alert'>SCORES : Soldats : "+blackScore+"<br> Villageois : "+whiteScore+"</div>";
+  alertWrite(alert);
 };
 
 /*

@@ -254,7 +254,6 @@ body {
   z-index: 19;
 }
 
-
 .page:nth-child(20) {
   background-image: url(../imgs/bh_cover_b.png);
   z-index: 20;
@@ -263,9 +262,8 @@ body {
 
 .swiped {
   -webkit-transform: translateX(-2000px);
-          transform: translateX(-2000px);
+  transform: translateX(-2000px);
 }
-
 
 /* For aligning #menu behind .book, not functioning atm */
 .book {
@@ -278,7 +276,6 @@ body {
   position: relative;
   margin-left: -400px;
   margin-top: -100px;
-<<<<<<< Updated upstream
   transition: all 1s ease-out;
   margin-bottom: 30px;
   cursor:  pointer;
@@ -286,19 +283,26 @@ body {
   font-family: 'chinesetakeaway';
   font-size: 20px;
   background: none;
+<<<<<<< HEAD
 
 
+=======
+  color: white;
+>>>>>>> origin/master
 }
 
 #menu li{
-    list-style: none;
-      border-style: solid;
+  list-style: none;
+  border-style: solid;
   border-width: 5px;
   border-color: white;
   padding: 10px 5px;
+<<<<<<< HEAD
   color: white;
 
 
+=======
+>>>>>>> origin/master
 }
 
 #menu li:first-child {

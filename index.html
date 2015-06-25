@@ -134,8 +134,8 @@
         render: function() {
           return (
             <div id="hud">
-              <input id="pass-btn" type="button" value="Passer" 
-              onClick={this.handleClick} />
+              <a id="pass-btn" 
+              onClick={this.handleClick}>Passer</a>
               <div id="turnIndicator">
                 <div id="turnBlack"></div>
                 <div id="turnWhite"></div>
@@ -175,6 +175,7 @@
       $('#game').css('display','inline-block');
       $('#board').css('height','30px');
       $('#turnBlack').addClass('activeTurn');
+      $('#pass-btn').addClass('passRed');
     }
   </script>
 </body>
