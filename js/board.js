@@ -18,7 +18,7 @@ Board.WHITE = 2;
   var alerts = document.getElementById('alerts');
   var firstAlert = document.getElementsByClassName('alert')[1];
   var muchAlerts = document.querySelectorAll('#alerts .alert').length;
-  if (muchAlerts > 5) {
+  if (muchAlerts > 4) {
     // remove the first .alert in #alerts before adding a new one
     alerts.removeChild(firstAlert);
     alerts.innerHTML+=alert+"<br>";
@@ -214,12 +214,18 @@ Board.WHITE = 2;
   function tutorialActive() {
     var tutorial = document.getElementById('tutorialActivator').className;
     if (tutorial = "activeMode") {
-      // Display first introduction alerts
       console.log('TRUE');
       var alert = "<div class='alert'>Bonjour ! Tu es donc prêt à devenir un vrai stratège ?</div>";
       alertWrite(alert);
       var alert = "<div class='alert'>Commençons alors, le jeu de Go se joue sur un damier : le GOBAN</div>";
       alertWrite(alert);
+      var alert = "<div class='alert'>Au jeu de Go, deux factions s'affrontent : les soldats qui attaquent et les villageois qui défendent</div>";
+      alertWrite(alert);
+      var alert = "<div class='alert'>Au jeu de Go, deux factions s'affrontent : les soldats qui attaquent et les villageois qui défendent</div>";
+      alertWrite(alert);
+      var alert = "<div class='alert'>Les soldats jouent en premier</div>";
+      alertWrite(alert);
+      
     }
   }
 

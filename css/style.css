@@ -283,16 +283,15 @@ body {
   font-family: 'chinesetakeaway';
   font-size: 20px;
   background: none;
-  color: white;
+  color: #8C3B3D;
 }
 
 #menu li{
   list-style: none;
   border-style: solid;
   border-width: 5px;
-  border-color: white;
+  border-color: #8C3B3D;
   padding: 10px 5px;
-  color: white;
 }
 
 #menu li:first-child {
@@ -303,8 +302,12 @@ body {
   border-top: none;
 }
 
+#menu li:hover {
+  color: white;
+}
 .activeMode {
-  color: black;
+  color: white;
+  background-color: #8C3B3D;
   transition: all 0.3s ease-out;
 }
 
@@ -314,7 +317,6 @@ body {
 
 #startGo{
   margin-top: 70px;
-  font-family: 'chinesetakeaway';
   font-size: 35px;
   color: white;
   text-decoration: none;
@@ -324,6 +326,11 @@ body {
   border-color: white;
   padding: 15px 10px;
   position: fixed;
+}
+
+#startGo:hover {
+  color: #8C3B3D;
+  border-color: #8C3B3D;
 }
 
 #menu label{

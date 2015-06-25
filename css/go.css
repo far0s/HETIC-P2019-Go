@@ -112,13 +112,14 @@
 }
 
 .alert {
+  line-height: 20px;
   background: url('../imgs/alertbg.svg') 5% center no-repeat, #973739;
   background-size: 20%;
   height: auto;
   width: 100%;
   font-size: 16px;
   padding: 10px 15px 10px 32px;
-  margin: 5px auto;
+  margin: -10px auto;
   text-align: right;
 }
 

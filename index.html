@@ -44,9 +44,9 @@
   <div id="menu" class="hiddenMenu">
     <h1>Prepare-toi pour la bataille !</h1>
     <ul>
-    <li><a id="tutorialActivator">Jouer le Tutoriel</a></li>
-      <li><a>Jouer contre un Ami</a></li>
-      <li><a>Jouer contre l'ordinateur</a></li>
+      <li id="tutorialActivator">Jouer le Tutoriel</li>
+      <li>Jouer contre un Ami</li>
+      <li>Jouer contre l'ordinateur</li>
     </ul>
 
     <a id="startGo" onclick="runGo()">Demarrer la bataille</a>
@@ -121,7 +121,7 @@
           else if (this.props.board.attempted_suicide)
             text = "SUICIDE!";
           return (
-            <div id="alerts"><span>Notifications</span><br/>{text}</div>
+            <div id="alerts"><span>Notifications</span><br/><br/>{text}</div>
             );
         }
       });

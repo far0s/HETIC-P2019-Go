@@ -27,7 +27,7 @@ $(window).load(function() {
   $('.book').addClass('bound');
 });
 
-$('#menu a').click(function() {
+$('#menu li').click(function() {
   $('.activeMode').removeClass('activeMode');
   $(this).addClass('activeMode');
 });
