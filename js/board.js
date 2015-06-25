@@ -211,9 +211,9 @@ Board.WHITE = 2;
   }
 
   // Tutorial algorithm
-  var tutorial = true;
   function tutorialActive() {
-    if (tutorial) {
+    var tutorial = document.getElementById('tutorialActivator').className;
+    if (tutorial = "activeMode") {
       // Display first introduction alerts
       console.log('TRUE');
       var alert = "<div class='alert'>Bonjour ! Tu es donc prêt à devenir un vrai stratège ?</div>";

@@ -30,5 +30,4 @@ $(window).load(function() {
 $('#menu a').click(function() {
   $('.activeMode').removeClass('activeMode');
   $(this).addClass('activeMode');
-  console.log('hop');
 });
