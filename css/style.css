@@ -286,7 +286,6 @@ body {
   font-family: 'chinesetakeaway';
   font-size: 20px;
   background: none;
-  color: white;
 
 
 }
@@ -297,6 +296,7 @@ body {
   border-width: 5px;
   border-color: white;
   padding: 10px 5px;
+  color: white;
 
 
 }
@@ -305,11 +305,13 @@ body {
   border-bottom: none;
 }
 
+#menu li:last-child {
+  border-top: none;
+}
+
 .activeMode {
   color: black;
-=======
   transition: all 2s ease-out;
->>>>>>> Stashed changes
 }
 
 .hiddenMenu {
@@ -333,4 +335,14 @@ body {
 #menu label{
   margin-top: 10px;
   margin-left: 65px;
+}
+
+h1{
+  margin-left: -55px;
+  margin-top: -85px;
+  position: fixed;
+  font-family: 'chinesetakeaway';
+  font-size: 33px;
+  background: none;
+  color: #8C3B3D;
 }
