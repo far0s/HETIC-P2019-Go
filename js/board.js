@@ -108,7 +108,7 @@ Board.WHITE = 2;
   var captured = [];
   var neighbors = this.get_adjacent_intersections(i, j);
   var atari = false;
-  var ko = false; // Ko rule is not implemented, due to previous turn detection being a complex thing to do
+  var ko = false; // KO rule is not implemented, due to previous turn detection being a complex thing to do
 
   var self = this;
   _.each(neighbors, function(n) {
@@ -209,3 +209,18 @@ Board.WHITE = 2;
       "stones": visited_list
     };
   }
+
+  // Tutorial algorithm
+  var tutorial = true;
+  function tutorialActive() {
+    if (tutorial) {
+      // Display first introduction alerts
+      console.log('TRUE');
+      var alert = "<div class='alert'>Bonjour ! Tu es donc prêt à devenir un vrai stratège ?</div>";
+      alertWrite(alert);
+      var alert = "<div class='alert'>Commençons alors, le jeu de Go se joue sur un damier : le GOBAN</div>";
+      alertWrite(alert);
+    }
+  }
+
+

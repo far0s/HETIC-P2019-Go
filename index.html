@@ -170,12 +170,14 @@
         <ContainerView board={board} />,
         document.getElementById('main')
         );
+      // Initialize game
       $('.book').addClass('swiped');
       $('#menu').addClass('swiped');
       $('#game').css('display','inline-block');
       $('#board').css('height','30px');
       $('#turnBlack').addClass('activeTurn');
       $('#pass-btn').addClass('passRed');
+      tutorialActive();
     }
   </script>
 </body>
