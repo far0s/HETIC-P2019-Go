@@ -80,16 +80,15 @@ Board.WHITE = 2;
  * Called when the game ends (both players passed)
  */
  Board.prototype.end_game = function() {
-  alertWrite("Les deux joueurs ont passé ! Fin du jeu.", 3000);
   // Add End score count
   var blackScore = document.querySelectorAll('.black').length;
   blackScore+=0.5;
   var whiteScore = document.querySelectorAll('.white').length;
   if (blackScore > whiteScore){
-    var alert = "<div class='alert'>Les soldats ont gagné !</div";
+    var alert = "<div class='alert'>Les deux joueurs ont passé !<br> Les soldats ont gagné !</div";
     alertWrite(alert);
   } else {
-    var alert = "<div class='alert'>Les villageois ont gagné!</div";
+    var alert = "<div class='alert'>Les deux joueurs ont passé !<br> Les villageois ont gagné!</div";
     alertWrite(alert);
   }
 };
