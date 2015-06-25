@@ -91,6 +91,8 @@ Board.WHITE = 2;
     var alert = "<div class='alert'>Les deux joueurs ont passé !<br> Les villageois ont gagné!</div";
     alertWrite(alert);
   }
+  var alert = "<div class='alert'>SCORES : Soldats : "+blackScore+"<br> Villageois : "+whiteScore+"</div>";
+  alertWrite(alert);
 };
 
 /*
