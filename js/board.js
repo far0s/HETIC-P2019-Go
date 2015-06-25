@@ -48,43 +48,24 @@ Board.WHITE = 2;
   this.current_color == Board.BLACK ? Board.WHITE : Board.BLACK;
   var turnBlack = document.getElementById('turnBlack');
   var turnWhite = document.getElementById('turnWhite');
+  var passbtn = document.getElementById('pass-btn');
   if (this.current_color === 1){
     // Remove .activeTurn from turnWhite and set it to turnBlack
     turnWhite.className="";
     turnBlack.className="activeTurn";
+    passbtn.className="passBlue";
   } else if (this.current_color === 2){
      // Remove .activeTurn from turnBlack and set it to turnWhite
      turnBlack.className="";
      turnWhite.className="activeTurn";
+     passbtn.className="passRed";
    }
-   function passCheck() {
-    var passbtn = document.getElementById('pass-btn');
-    if(passbtn.className === "passBlue"){
-      passbtn.className="passBlue";
-      passbtn.className="passRed";
-    }else{
-      passbtn.className="passRed";
-      passbtn.className="passBlue";
-    }
-  }
-  passCheck();
-};
+ };
 
 /*
  * At any point in the game, a player can pass and let his opponent play
  */
  Board.prototype.pass = function() {
-  function passCheck() {
-    var passbtn = document.getElementById('pass-btn');
-    if(passbtn.className === "passBlue"){
-      passbtn.className="passBlue";
-      passbtn.className="passRed";
-    }else{
-      passbtn.className="passRed";
-      passbtn.className="passBlue";
-    }
-  }
-  passCheck();
   if (this.last_move_passed)
     this.end_game();
   else {
