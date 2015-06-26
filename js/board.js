@@ -60,6 +60,7 @@ var posArray = [
   "[style='top:120px;left:280px;']",  //23
   "[style='top:80px;left:240px;']",   //24
   "[style='top:80px;left:200px;']",   //25
+  "[style='top:240px;left:240px;']",  //25
   ];
 
 /*

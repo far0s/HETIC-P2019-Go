@@ -26,13 +26,22 @@
   /*border: solid 10px orange;*/
   border-radius: 20px;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-  font-family: 'SofiaProLight', sans-serif;
+  font-family: 'sofiaprolight', sans-serif;
 }
 
 .intersection {
   width: 40px;
   height: 40px;
   border-radius: 20px;
+  position: absolute;
+  box-sizing: border-box;
+  transition: all 0.3s;
+}
+
+.hoshi {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
   position: absolute;
   box-sizing: border-box;
   transition: all 0.3s;
@@ -116,6 +125,7 @@
   background: url('../imgs/alertbg.svg') 5% center no-repeat, #973739;
   background-size: 20%;
   height: auto;
+  min-height: 50px;
   width: 100%;
   font-size: 16px;
   padding: 10px 15px 10px 32px;
