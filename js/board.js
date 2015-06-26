@@ -11,19 +11,101 @@ Board.EMPTY = 0;
 Board.BLACK = 1;
 Board.WHITE = 2;
 
+// Alerts array for TUTORIAL
+var tutorial = document.getElementById('tutorialActivator').className;
+var alertArray = [
+  "<div class='alert'>Bonjour ! Tu es donc prêt à devenir un vrai stratège ? <a onclick='alertWrite(alertArray[1]);'>Suivant</a></div>", 
+  "<div class='alert'>Bien ! Le jeu de Go se joue sur un plateau : le Goban <a onclick='alertWrite(alertArray[2]);'>Suivant</a></div>", 
+  "<div class='alert'>Le jeu se joue avec des soldats, qui attaquent, et des villageois, qui défendent. <a onclick='alertWrite(alertArray[3]);stonePlaceB(posArray[0])'>Suivant</a></div>",
+  "<div class='alert'>Les soldats jouent en premier. <a onclick='alertWrite(alertArray[4]);stonePlaceW(posArray[2])'>Suivant</a></div>",
+  "<div class='alert'>Place ton villageois à côté du soldat. <a onclick='alertWrite(alertArray[5]);stonePlaceW(posArray[1]);stonePlaceW(posArray[3])'>Suivant</a></div>",
+  "<div class='alert'>Et maintenant entoure-le ! <a onclick='alertWrite(alertArray[6]);stonePlaceW(posArray[4]);stoneClear(posArray[0])'>Suivant</a></div>",
+  "<div class='alert'>Bravo ! Tu viens de capturer le premier soldat adverse ! <a onclick='alertWrite(alertArray[7]);stoneClear(posArray[2]);stoneClear(posArray[1]);stoneClear(posArray[3]);stoneClear(posArray[4]);stonePlaceW(posArray[5])'>Suivant</a></div>",
+  "<div class='alert'>Une pierre commence avec 4 'libertés', soit entourée d'aucune pierre. <a onclick='alertWrite(alertArray[8]);stonePlaceB(posArray[6])'>Suivant</a></div>",
+  "<div class='alert'>Si une autre pierre la touche, elle n'a plus que 3 libertés. <a onclick='alertWrite(alertArray[9]);stonePlaceW(posArray[6])'>Suivant</a></div>",
+  "<div class='alert'>Dans le cas où deux pierres du même camp sont côte à côte, cela crée une 'chaîne', les libertées sont partagées <a onclick='alertWrite(alertArray[10]);stoneClear(posArray[5]);stoneClear(posArray[6])'>Suivant</a></div>",
+  "<div class='alert'>Une autre règle importante : le Ko. <a onclick='alertWrite(alertArray[11]);stonePlaceB(posArray[6]);stonePlaceB(posArray[7]);stonePlaceW(posArray[8]);stonePlaceB(posArray[9]);stonePlaceB(posArray[10]);stonePlaceW(posArray[11]);stonePlaceW(posArray[12]);'>Suivant</a></div>",
+  "<div class='alert'>Dans ce cas précis, les villageois vont capturer la pierre du milieu. <a onclick='alertWrite(alertArray[12]);stonePlaceW(posArray[5]);stoneClear(posArray[7]);'>Suivant</a></div>",
+  "<div class='alert'>Mais les soldats vont pouvoir reprendre la pierre adverse de la même façon, et on se retrouve dans une boucle. <a onclick='alertWrite(alertArray[13]);stonePlaceB(posArray[7]);stoneClear(posArray[5]);'>Suivant</a></div>",
+  "<div class='alert'>Pour empêcher cela, on admet que ce coup ne peut pas être joué plus d'une fois d'affilée. <a onclick='alertWrite(alertArray[14]);stoneClear(posArray[6]);stoneClear(posArray[7]);stoneClear(posArray[8]);stoneClear(posArray[9]);stoneClear(posArray[10]);stoneClear(posArray[11]);stoneClear(posArray[12]);'>Suivant</a></div>",
+  "<div class='alert'>Souviens-toi, la partie s'arrête quand les deux joueurs ont passé leur tour ! <a onclick='alertWrite(alertArray[15]);stonePlaceB(posArray[9]);stonePlaceW(posArray[13]);stonePlaceB(posArray[14]);stonePlaceW(posArray[15]);stonePlaceB(posArray[16]);stonePlaceW(posArray[17]);stonePlaceB(posArray[18]);stonePlaceW(posArray[19]);stonePlaceB(posArray[20]);stonePlaceW(posArray[21]);stonePlaceB(posArray[22]);stonePlaceW(posArray[23]);stonePlaceB(posArray[24]);stonePlaceW(posArray[25]);'>Suivant</a></div>",
+  "<div class='alert'>Tu sais maintenant tout ce qu'il faut pour gagner cette bataille !! <a onclick='location.reload();'>GO !</a></div>",
+  ];
+
+// Positions array for TUTORIAL
+var posArray = [
+  "[style='top:280px;left:80px;']",   //0
+  "[style='top:240px;left:80px;']",   //1
+  "[style='top:280px;left:40px;']",   //2
+  "[style='top:280px;left:120px;']",  //3
+  "[style='top:320px;left:80px;']",   //4
+  "[style='top:160px;left:160px;']",  //5
+  "[style='top:160px;left:120px;']",  //6
+  "[style='top:160px;left:200px;']",  //7
+  "[style='top:160px;left:240px;']",  //8
+  "[style='top:120px;left:160px;']",  //9
+  "[style='top:200px;left:160px;']",  //10
+  "[style='top:120px;left:200px;']",  //11
+  "[style='top:200px;left:200px;']",  //12
+  "[style='top:80px;left:120px;']",   //13
+  "[style='top:80px;left:80px;']",    //14
+  "[style='top:120px;left:40px;']",   //15
+  "[style='top:160px;left:40px;']",   //16
+  "[style='top:200px;left:80px;']",   //17
+  "[style='top:240px;left:120px;']",  //18
+  "[style='top:280px;left:160px;']",  //19
+  "[style='top:240px;left:200px;']",  //20
+  "[style='top:200px;left:240px;']",  //21
+  "[style='top:160px;left:280px;']",  //22
+  "[style='top:120px;left:280px;']",  //23
+  "[style='top:80px;left:240px;']",   //24
+  "[style='top:80px;left:200px;']",   //25
+  ];
+
+/*
+ * Tutorial algorithm
+ */ 
+function tutorialActive() {
+  if (document.getElementById('tutorialActivator').className == "activeMode") {
+    alertWrite(alertArray[0]);
+  }
+}
+function stonePlaceB(posArray) {
+  $(posArray).addClass('black');
+}
+function stonePlaceW(posArray) {
+  $(posArray).addClass('white');
+}
+function stoneClear(posArray) {
+  $(posArray).removeClass('white');
+  $(posArray).removeClass('black');
+}
+
 /*
  * Write an alert in #alerts, waits a bit before erasing it
  */
  function alertWrite(alert) {
   var alerts = document.getElementById('alerts');
-  var firstAlert = document.getElementsByClassName('alert')[1];
+  var firstAlert = document.getElementsByClassName('alert')[0];
+  var firstBr = document.getElementsByTagName('br')[0];
   var muchAlerts = document.querySelectorAll('#alerts .alert').length;
-  if (muchAlerts > 4) {
+  if (document.getElementById('tutorialActivator').className == "activeMode") {
+    if (muchAlerts > 0) {
+      alerts.removeChild(firstAlert);
+      alerts.removeChild(firstBr);
+      alerts.innerHTML+=alert+"<br>";
+    } else {
+      alerts.innerHTML+=alert+"<br>";
+    }
+  } else {
+    if (muchAlerts > 3) {
     // remove the first .alert in #alerts before adding a new one
     alerts.removeChild(firstAlert);
+    alerts.removeChild(firstBr);
     alerts.innerHTML+=alert+"<br>";
-  } else {
-    document.getElementById('alerts').innerHTML+=alert+"<br>";
+    } else {
+      alerts.innerHTML+=alert+"<br>";
+    }
   }
 }
 
@@ -209,24 +291,3 @@ Board.WHITE = 2;
       "stones": visited_list
     };
   }
-
-  // Tutorial algorithm
-  function tutorialActive() {
-    var tutorial = document.getElementById('tutorialActivator').className;
-    if (tutorial = "activeMode") {
-      console.log('TRUE');
-      var alert = "<div class='alert'>Bonjour ! Tu es donc prêt à devenir un vrai stratège ?</div>";
-      alertWrite(alert);
-      var alert = "<div class='alert'>Commençons alors, le jeu de Go se joue sur un damier : le GOBAN</div>";
-      alertWrite(alert);
-      var alert = "<div class='alert'>Au jeu de Go, deux factions s'affrontent : les soldats qui attaquent et les villageois qui défendent</div>";
-      alertWrite(alert);
-      var alert = "<div class='alert'>Au jeu de Go, deux factions s'affrontent : les soldats qui attaquent et les villageois qui défendent</div>";
-      alertWrite(alert);
-      var alert = "<div class='alert'>Les soldats jouent en premier</div>";
-      alertWrite(alert);
-      
-    }
-  }
-
-

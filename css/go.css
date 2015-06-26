@@ -100,7 +100,7 @@
 #alerts {
   box-sizing: border-box;
   position: absolute;
-  top: 60px;
+  top: 10px;
   left: 20px;
   width: 250px;
   height: 360px;
@@ -119,8 +119,15 @@
   width: 100%;
   font-size: 16px;
   padding: 10px 15px 10px 32px;
-  margin: -10px auto;
+  margin: 0 auto 10px;
   text-align: right;
+}
+
+.alert a {
+  font-family: 'chinesetakeaway';
+}
+.alert a:hover {
+  cursor: pointer;
 }
 
 #alerts, #board, #hud, #turnIndicator, #pass-btn {
