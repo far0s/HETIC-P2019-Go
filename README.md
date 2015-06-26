@@ -18,7 +18,7 @@ is composed of four 1st year students at HETIC :
 - Draw Goban (board) : :heavy_check_mark:
 - Implement basic Go rules (atari/ko/etc.) : :heavy_check_mark: (still work to do on ko)
 - The app allows PvP local game : :heavy_check_mark:
-- Score count : :check: (is displayed at the end of the game, as we want the game to )
+- Score count : :heavy_check_mark: (is displayed at the end of the game, as we want the game to )
 - Winner/loser detection : :heavy_check_mark:
 
 *Should-have* functionalities : 
